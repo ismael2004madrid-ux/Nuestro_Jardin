@@ -16,7 +16,6 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--forest);color:var(--cream);font:400 15px/1.75 'Domine',Georgia,serif;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 0%,rgba(116,133,104,.16),transparent 55%),radial-gradient(ellipse at 0% 70%,rgba(116,133,104,.08),transparent 38%)}
 button{font:inherit}
-
 .fireflies{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .firefly{position:absolute;width:4px;height:4px;border-radius:50%;background:#f4dc78;opacity:0;box-shadow:0 0 6px 2px rgba(244,220,120,.55),0 0 16px 4px rgba(244,220,120,.22);animation:firefly-drift 12s ease-in-out infinite}
 .firefly:nth-child(1){left:8%;top:22%;animation-delay:-2s;animation-duration:14s}
@@ -36,14 +35,13 @@ button{font:inherit}
 .shell{width:min(1080px,calc(100% - 48px));margin:auto}
 .topline span:last-child{color:var(--gold)}
 .hero{position:relative;isolation:isolate;text-align:center;padding:76px 20px 0;min-height:430px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
-.hero-gif{position:absolute;z-index:-2;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,100%);height:100%;object-fit:contain;object-position:center;pointer-events:none}
+.hero-gif{position:absolute;z-index:-2;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,100%);height:100%;object-fit:contain;object-position:center;clip-path:inset(12.5% 0);pointer-events:none}
 .hero:before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(13,25,20,.38) 0%,rgba(13,25,20,.12) 48%,rgba(23,37,31,.16) 100%)}
 .hero:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(116,133,104,.16);border-radius:50%;top:48px;right:-130px;pointer-events:none}
 h1{position:relative;z-index:1;font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-weight:500;font-style:italic;margin:0;color:var(--cream);text-shadow:0 2px 12px rgba(0,0,0,.95),0 0 28px rgba(0,0,0,.75)}
 .subtitle{position:relative;z-index:1;font-size:13px;color:#e0e7d3;font-style:italic;margin:14px 0 0;letter-spacing:.02em;text-shadow:0 2px 9px rgba(0,0,0,.98),0 0 18px rgba(0,0,0,.85)}
+.count{position:relative;z-index:1;display:block;margin-top:12px;color:var(--gold);font-size:14px;letter-spacing:.08em;text-shadow:0 2px 9px rgba(0,0,0,.98),0 0 18px rgba(0,0,0,.85)}
 .flower-mark{color:var(--gold);font-size:.78em;vertical-align:10%}
-.intro{display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 0 24px;border-top:1px solid var(--line);margin-bottom:34px;text-align:center}
-.count{white-space:nowrap;color:var(--gold);font-size:15px;letter-spacing:.08em}
 .garden{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;align-items:start}
 .specimen{grid-column:span 4;position:relative;min-height:290px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(41,59,48,.86),rgba(29,44,35,.72));border-radius:3px;padding:15px 16px 17px;text-align:left;color:inherit;cursor:pointer;overflow:hidden;transition:transform .35s,border-color .35s,background .35s;animation:appear .7s both}
 .specimen:nth-child(3n+1){grid-column:span 5}.specimen:nth-child(3n+2){grid-column:span 3;margin-top:42px}.specimen:nth-child(3n){grid-column:span 4;margin-top:15px}
@@ -87,24 +85,20 @@ h1{position:relative;z-index:1;font-size:clamp(28px,5vw,48px);line-height:1.2;le
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes rise{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:760px){.hero{min-height:390px;padding-top:64px}.hero-gif{width:100%;max-width:560px}.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;margin-top:0}.specimen:nth-child(even){margin-top:30px}.hero{padding:65px 12px 43px}}
-@media(max-width:480px){.hero{min-height:330px;padding:54px 5px 0}.hero-gif{width:100%;max-width:none}.shell{width:calc(100% - 34px)}.topline{font-size:8px;letter-spacing:.1em}.hero{padding:58px 5px 38px}.subtitle{font-size:12px}.intro{align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:6px;width:100%}.count{width:100%;text-align:center}.garden{gap:12px}.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;padding:11px 10px 13px;min-height:240px}.specimen:nth-child(even){margin-top:24px}.art{height:130px}.art-placeholder{font-size:50px}.specimen-name{font-size:13px}.specimen-alt{font-size:10px}.specimen-date{font-size:9px}.dialog{padding:22px 20px 24px}.dialog-art{height:180px}}
+@media(max-width:480px){.hero{min-height:330px;padding:54px 5px 0}.hero-gif{width:100%;max-width:none}.shell{width:calc(100% - 34px)}.topline{font-size:8px;letter-spacing:.1em}.hero{padding:58px 5px 38px}.subtitle{font-size:12px}.count{font-size:13px;margin-top:10px}.garden{gap:12px}.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;padding:11px 10px 13px;min-height:240px}.specimen:nth-child(even){margin-top:24px}.art{height:130px}.art-placeholder{font-size:50px}.specimen-name{font-size:13px}.specimen-alt{font-size:10px}.specimen-date{font-size:9px}.dialog{padding:22px 20px 24px}.dialog-art{height:180px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.firefly{display:none}}
 </style>
 </head>
 <body>
 <div class="fireflies" aria-hidden="true"><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span></div>
 <div class="grain" aria-hidden="true"></div>
-<div class="shell">
-</div>
 <header class="hero">
   <img class="hero-gif" src="images/kirby_noche_verde-3.gif" alt="" aria-hidden="true" fetchpriority="high">
   <h1>NUESTRO <span class="flower-mark">✿</span> JARDÍN</h1>
   <p class="subtitle">Una colección de las flores que hemos conseguido reunir</p>
+  <span class="count" id="count">Cargando colección…</span>
 </header>
 <main class="shell">
-  <section class="intro" aria-label="Información de la colección">
-    <span class="count" id="count">Cargando colección…</span>
-  </section>
   <section class="garden" id="garden" aria-live="polite">
     <p class="loading">Estamos preparando el jardín…</p>
   </section>
