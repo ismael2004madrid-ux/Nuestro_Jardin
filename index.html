@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17251F">
+<meta name="description" content="Una colección de las flores que hemos conseguido reunir.">
+<title>NUESTRO ✿ JARDÍN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#17251F;--green:#293B30;--sage:#748568;--gold:#D7C9A9;--cream:#F0E9DA;--muted:#b9b9a7;--line:rgba(215,201,169,.2);--card:rgba(41,59,48,.72)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--forest);color:var(--cream);font:400 15px/1.75 'Domine',Georgia,serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 0%,rgba(116,133,104,.16),transparent 55%),radial-gradient(ellipse at 0% 70%,rgba(116,133,104,.08),transparent 38%)}
+button{font:inherit}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.12;z-index:5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
+.shell{width:min(1080px,calc(100% - 48px));margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;padding:25px 0 18px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.topline span:last-child{color:var(--gold)}
+.hero{position:relative;text-align:center;padding:83px 20px 55px;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(116,133,104,.16);border-radius:50%;top:48px;pointer-events:none}
+.hero:before{left:-130px}.hero:after{right:-130px}
+.eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin:0 0 18px}
+h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-weight:500;margin:0;color:var(--cream)}
+.flower-mark{color:var(--gold);font-size:.78em;vertical-align:10%}
+.subtitle{font-size:13px;color:#c7c4b4;font-style:italic;margin:17px auto 0;max-width:470px}
+.hero-note{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:29px;color:var(--sage);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.hero-note:before,.hero-note:after{content:"";width:34px;height:1px;background:var(--sage);opacity:.65}
+.intro{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:34px}
+.intro p{margin:0;color:var(--muted);font-size:12px}
+.count{white-space:nowrap;color:var(--gold);font-size:11px;letter-spacing:.08em}
+.garden{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;align-items:start}
+.specimen{grid-column:span 4;position:relative;min-height:290px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(41,59,48,.86),rgba(29,44,35,.72));border-radius:3px;padding:15px 16px 17px;text-align:left;color:inherit;cursor:pointer;overflow:hidden;transition:transform .35s,border-color .35s,background .35s;animation:appear .7s both}
+.specimen:nth-child(3n+1){grid-column:span 5}.specimen:nth-child(3n+2){grid-column:span 3;margin-top:42px}.specimen:nth-child(3n){grid-column:span 4;margin-top:15px}
+.specimen:hover{transform:translateY(-5px);border-color:rgba(215,201,169,.55);background:linear-gradient(145deg,rgba(54,74,59,.95),rgba(29,44,35,.85))}
+.specimen:focus-visible,.close:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.specimen-top{display:flex;justify-content:space-between;align-items:center;color:var(--sage);font-size:10px;letter-spacing:.12em}
+.specimen-no{color:var(--gold)}
+.art{height:178px;display:flex;align-items:center;justify-content:center;position:relative;margin:8px 0 7px;overflow:hidden}
+.art:before{content:"";position:absolute;width:150px;height:150px;border:1px solid rgba(215,201,169,.1);border-radius:50%}
+.art img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.15))}
+.art-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(215,201,169,.55);font-size:65px;font-weight:400;position:relative}
+.art-placeholder:after{content:"";position:absolute;width:105px;height:105px;border:1px solid rgba(215,201,169,.16);border-radius:50%}
+.specimen-name{font-size:16px;font-weight:500;line-height:1.35;margin:4px 0 2px}
+.specimen-alt{font-size:11px;color:var(--sage);font-style:italic;margin:0}
+.specimen-date{font-size:10px;color:var(--muted);margin-top:11px;letter-spacing:.04em}
+.specimen-date:before{content:"— ";color:var(--gold)}
+.loading,.error,.empty{grid-column:1/-1;text-align:center;padding:55px 20px;color:var(--muted);font-size:13px}
+.error{color:#e1b9a9}
+.footer{text-align:center;padding:85px 20px 55px;color:var(--gold)}
+.footer-ornament{font-size:25px;opacity:.8}
+.footer p{font-size:13px;font-style:italic;margin:10px 0 0}
+.footer small{display:block;color:var(--sage);font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-top:22px}
+.modal{position:fixed;inset:0;z-index:10;background:rgba(8,15,11,.82);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:22px}
+.modal.open{display:flex;animation:fade .2s ease}
+.dialog{width:min(540px,100%);max-height:min(88vh,760px);overflow:auto;position:relative;background:#293B30;border:1px solid rgba(215,201,169,.35);padding:25px 30px 30px;box-shadow:0 25px 80px rgba(0,0,0,.4);animation:rise .28s ease}
+.close{position:absolute;right:15px;top:10px;background:none;border:0;color:var(--gold);font-size:25px;cursor:pointer;padding:5px 9px}
+.dialog-art{height:220px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;max-width:320px}
+.dialog-art img{height:100%;width:100%;object-fit:contain}
+.dialog-art .art-placeholder{font-size:76px}
+.dialog-kicker{text-align:center;color:var(--sage);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 8px}
+.dialog h2{text-align:center;font-size:25px;line-height:1.3;font-weight:500;margin:0;color:var(--cream)}
+.dialog-alt{text-align:center;color:var(--gold);font-style:italic;font-size:12px;margin:5px 0 23px}
+.meaning-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0 0 8px}
+.meaning{font-size:13px;color:#e1dfd2;margin:0 0 22px}
+.dialog-meta{display:flex;justify-content:space-between;gap:15px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:10px}
+.dialog-meta strong{display:block;color:var(--gold);font-weight:400;margin-top:3px}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:760px){.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;margin-top:0}.specimen:nth-child(even){margin-top:30px}.hero{padding:65px 12px 43px}}
+@media(max-width:480px){.shell{width:calc(100% - 34px)}.topline{font-size:8px;letter-spacing:.1em}.hero{padding:58px 5px 38px}.subtitle{font-size:12px}.intro{align-items:flex-start;flex-direction:column;gap:6px}.garden{gap:12px}.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;padding:11px 10px 13px;min-height:240px}.specimen:nth-child(even){margin-top:24px}.art{height:130px}.art-placeholder{font-size:50px}.specimen-name{font-size:13px}.specimen-alt{font-size:10px}.specimen-date{font-size:9px}.dialog{padding:22px 20px 24px}.dialog-art{height:180px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="shell">
+  <div class="topline"><span>Un pequeño archivo de recuerdos</span><span>Desde septiembre · 2026</span></div>
+</div>
+<header class="hero">
+  <p class="eyebrow">Herbario de dos</p>
+  <h1>NUESTRO <span class="flower-mark">✿</span> JARDÍN</h1>
+  <p class="subtitle">Una colección de las flores que hemos conseguido reunir.</p>
+  <div class="hero-note">Cada flor guarda una historia</div>
+</header>
+<main class="shell">
+  <section class="intro" aria-label="Información de la colección">
+    <p>Flores recogidas, fechas que permanecen y pequeños significados.</p>
+    <span class="count" id="count">Cargando colección…</span>
+  </section>
+  <section class="garden" id="garden" aria-live="polite">
+    <p class="loading">Estamos preparando el jardín…</p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="footer-ornament" aria-hidden="true">✿</div>
+  <p>Y que nunca dejemos de reunir flores...</p>
+  <small>Con cariño, para seguir creciendo juntos</small>
+</footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+  <article class="dialog">
+    <button class="close" id="closeModal" type="button" aria-label="Cerrar">×</button>
+    <div class="dialog-art" id="modalArt"></div>
+    <p class="dialog-kicker" id="modalNumber"></p>
+    <h2 id="modalName"></h2>
+    <p class="dialog-alt" id="modalAlt"></p>
+    <p class="meaning-label">Lo que representa</p>
+    <p class="meaning" id="modalMeaning"></p>
+    <div class="dialog-meta">
+      <span>Primera vez<strong id="modalDate"></strong></span>
+      <span>En nuestro jardín<strong id="modalSpecimen"></strong></span>
+    </div>
+  </article>
+</div>
+<script>
+(() => {
+  const SUPABASE_URL = "https://wpimucwbsjipwowckvpv.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_xP9Wp_eBQlVaRijr-oZ4Ug_WyFhwoCa";
+  const garden = document.getElementById("garden");
+  const count = document.getElementById("count");
+  const modal = document.getElementById("modal");
+  const closeButton = document.getElementById("closeModal");
+  let flowers = [];
+  let previousFocus = null;
+
+  const formatDate = value => {
+    if (!value) return "Fecha por añadir";
+    const [year, month, day] = value.slice(0,10).split("-");
+    return day + "/" + month + "/" + year;
+  };
+
+  function makeArt(url, name) {
+    const wrap = document.createElement("div");
+    wrap.className = "art-placeholder";
+    if (url) {
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = name;
+      img.loading = "lazy";
+      img.onerror = () => {
+        wrap.replaceChildren();
+        wrap.textContent = "✿";
+      };
+      wrap.className = "specimen-image";
+      wrap.style.width = "100%";
+      wrap.style.height = "100%";
+      wrap.style.objectFit = "contain";
+      wrap.style.position = "relative";
+      wrap.style.zIndex = "1";
+      return img;
+    }
+    wrap.textContent = "✿";
+    return wrap;
+  }
+
+  function openFlower(flower, index, trigger) {
+    previousFocus = trigger;
+    const art = document.getElementById("modalArt");
+    art.replaceChildren();
+    const image = makeArt(flower.image_url, flower.name);
+    if (image.tagName === "IMG") {
+      image.style.width = "100%";
+      image.style.height = "100%";
+      image.style.objectFit = "contain";
+      art.append(image);
+    } else {
+      art.append(image);
+    }
+    document.getElementById("modalNumber").textContent = "Especimen nº " + String(index + 1).padStart(2,"0");
+    document.getElementById("modalName").textContent = flower.name;
+    document.getElementById("modalAlt").textContent = flower.alternative_name || "";
+    document.getElementById("modalMeaning").textContent = flower.meaning || "Un significado que iremos descubriendo.";
+    document.getElementById("modalDate").textContent = formatDate(flower.first_date);
+    document.getElementById("modalSpecimen").textContent = String(index + 1).padStart(2,"0");
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    closeButton.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+    if (previousFocus) previousFocus.focus();
+  }
+
+  function render() {
+    garden.replaceChildren();
+    if (!flowers.length) {
+      const p = document.createElement("p");
+      p.className = "empty";
+      p.textContent = "Todavía no hay flores en el jardín. Pronto crecerán las primeras.";
+      garden.append(p);
+      count.textContent = "0 flores reunidas";
+      return;
+    }
+    count.textContent = flowers.length + (flowers.length === 1 ? " flor reunida" : " flores reunidas");
+    flowers.forEach((flower, index) => {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "specimen";
+      card.style.animationDelay = Math.min(index * 65, 500) + "ms";
+      const top = document.createElement("div");
+      top.className = "specimen-top";
+      const label = document.createElement("span");
+      label.textContent = "HERBARIO";
+      const number = document.createElement("span");
+      number.className = "specimen-no";
+      number.textContent = String(index + 1).padStart(2,"0");
+      top.append(label, number);
+      const art = document.createElement("div");
+      art.className = "art";
+      art.append(makeArt(flower.image_url, flower.name));
+      const name = document.createElement("p");
+      name.className = "specimen-name";
+      name.textContent = flower.name;
+      const alt = document.createElement("p");
+      alt.className = "specimen-alt";
+      alt.textContent = flower.alternative_name || " ";
+      const date = document.createElement("p");
+      date.className = "specimen-date";
+      date.textContent = formatDate(flower.first_date);
+      card.append(top, art, name, alt, date);
+      card.setAttribute("aria-label", "Abrir ficha de " + flower.name);
+      card.addEventListener("click", () => openFlower(flower, index, card));
+      garden.append(card);
+    });
+  }
+
+  async function loadFlowers() {
+    try {
+      const url = SUPABASE_URL + "/rest/v1/flowers?select=name,alternative_name,meaning,first_date,image_url&order=first_date.asc,name.asc";
+      const response = await fetch(url, {
+        headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + SUPABASE_KEY }
+      });
+      if (!response.ok) throw new Error("Supabase respondió " + response.status);
+      flowers = await response.json();
+      render();
+    } catch (error) {
+      console.error("No se pudo cargar el jardín:", error);
+      garden.replaceChildren();
+      const p = document.createElement("p");
+      p.className = "error";
+      p.textContent = "No hemos podido abrir el jardín ahora mismo. Inténtalo de nuevo dentro de un momento.";
+      garden.append(p);
+      count.textContent = "Colección temporalmente inaccesible";
+    }
+  }
+
+  closeButton.addEventListener("click", closeModal);
+  modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && modal.classList.contains("open")) closeModal();
+  });
+  loadFlowers();
+})();
+</script>
+</body>
+</html>
