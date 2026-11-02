@@ -16,6 +16,22 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--forest);color:var(--cream);font:400 15px/1.75 'Domine',Georgia,serif;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 0%,rgba(116,133,104,.16),transparent 55%),radial-gradient(ellipse at 0% 70%,rgba(116,133,104,.08),transparent 38%)}
 button{font:inherit}
+
+.fireflies{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.firefly{position:absolute;width:4px;height:4px;border-radius:50%;background:#f4dc78;opacity:0;box-shadow:0 0 6px 2px rgba(244,220,120,.55),0 0 16px 4px rgba(244,220,120,.22);animation:firefly-drift 12s ease-in-out infinite}
+.firefly:nth-child(1){left:8%;top:22%;animation-delay:-2s;animation-duration:14s}
+.firefly:nth-child(2){left:19%;top:68%;animation-delay:-8s;animation-duration:17s}
+.firefly:nth-child(3){left:31%;top:38%;animation-delay:-5s;animation-duration:13s}
+.firefly:nth-child(4){left:43%;top:82%;animation-delay:-11s;animation-duration:16s}
+.firefly:nth-child(5){left:56%;top:19%;animation-delay:-7s;animation-duration:15s}
+.firefly:nth-child(6){left:67%;top:58%;animation-delay:-3s;animation-duration:18s}
+.firefly:nth-child(7){left:78%;top:32%;animation-delay:-10s;animation-duration:14s}
+.firefly:nth-child(8){left:91%;top:73%;animation-delay:-6s;animation-duration:16s}
+.firefly:nth-child(9){left:13%;top:89%;animation-delay:-12s;animation-duration:19s}
+.firefly:nth-child(10){left:84%;top:11%;animation-delay:-4s;animation-duration:15s}
+.firefly:nth-child(11){left:49%;top:48%;animation-delay:-9s;animation-duration:17s}
+.firefly:nth-child(12){left:73%;top:91%;animation-delay:-1s;animation-duration:13s}
+@keyframes firefly-drift{0%,100%{opacity:0;transform:translate3d(0,0,0) scale(.65)}15%,35%{opacity:.8}50%{opacity:.35;transform:translate3d(22px,-30px,0) scale(1)}70%{opacity:.75;transform:translate3d(-12px,-48px,0) scale(.8)}85%{opacity:0}}
 .grain{position:fixed;inset:0;pointer-events:none;opacity:.12;z-index:5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
 .shell{width:min(1080px,calc(100% - 48px));margin:auto}
 .topline span:last-child{color:var(--gold)}
@@ -45,7 +61,7 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
 .specimen-date:before{content:"— ";color:var(--gold)}
 .loading,.error,.empty{grid-column:1/-1;text-align:center;padding:55px 20px;color:var(--muted);font-size:13px}
 .error{color:#e1b9a9}
-.footer{text-align:center;padding:85px 20px 55px;color:var(--gold)}
+.footer{text-align:center;padding:58px 20px 55px;color:var(--gold)}
 .back-btn{display:inline-block;margin-top:22px;padding:10px 22px;border:1px solid var(--sage);border-radius:999px;color:var(--cream);background:transparent;text-decoration:none;font:inherit;font-size:13px;transition:background .2s,border-color .2s}
 .back-btn:hover{background:var(--green);border-color:var(--gold)}
 .back-btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
@@ -70,11 +86,12 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes rise{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:760px){.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;margin-top:0}.specimen:nth-child(even){margin-top:30px}.hero{padding:65px 12px 43px}}
-@media(max-width:480px){.shell{width:calc(100% - 34px)}.topline{font-size:8px;letter-spacing:.1em}.hero{padding:58px 5px 38px}.subtitle{font-size:12px}.intro{align-items:flex-start;flex-direction:column;gap:6px}.garden{gap:12px}.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;padding:11px 10px 13px;min-height:240px}.specimen:nth-child(even){margin-top:24px}.art{height:130px}.art-placeholder{font-size:50px}.specimen-name{font-size:13px}.specimen-alt{font-size:10px}.specimen-date{font-size:9px}.dialog{padding:22px 20px 24px}.dialog-art{height:180px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media(max-width:480px){.shell{width:calc(100% - 34px)}.topline{font-size:8px;letter-spacing:.1em}.hero{padding:58px 5px 38px}.subtitle{font-size:12px}.intro{align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:6px;width:100%}.count{width:100%;text-align:center}.garden{gap:12px}.specimen,.specimen:nth-child(3n+1),.specimen:nth-child(3n+2),.specimen:nth-child(3n){grid-column:span 6;padding:11px 10px 13px;min-height:240px}.specimen:nth-child(even){margin-top:24px}.art{height:130px}.art-placeholder{font-size:50px}.specimen-name{font-size:13px}.specimen-alt{font-size:10px}.specimen-date{font-size:9px}.dialog{padding:22px 20px 24px}.dialog-art{height:180px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.firefly{display:none}}
 </style>
 </head>
 <body>
+<div class="fireflies" aria-hidden="true"><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="shell">
 </div>
