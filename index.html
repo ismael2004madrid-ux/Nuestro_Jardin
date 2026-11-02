@@ -23,8 +23,9 @@ button{font:inherit}
 .hero:before,.hero:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(116,133,104,.16);border-radius:50%;top:48px;pointer-events:none}
 .hero:before{left:-130px}.hero:after{right:-130px}
 h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-weight:500;font-style:italic;margin:0;color:var(--cream)}
+.subtitle{font-size:13px;color:var(--sage);font-style:italic;margin:14px 0 0;letter-spacing:.02em}
 .flower-mark{color:var(--gold);font-size:.78em;vertical-align:10%}
-.intro{display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 0 24px;border-bottom:1px solid var(--line);margin-bottom:34px;text-align:center}
+.intro{display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 0 24px;border-top:1px solid var(--line);margin-bottom:34px;text-align:center}
 .count{white-space:nowrap;color:var(--gold);font-size:15px;letter-spacing:.08em}
 .garden{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;align-items:start}
 .specimen{grid-column:span 4;position:relative;min-height:290px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(41,59,48,.86),rgba(29,44,35,.72));border-radius:3px;padding:15px 16px 17px;text-align:left;color:inherit;cursor:pointer;overflow:hidden;transition:transform .35s,border-color .35s,background .35s;animation:appear .7s both}
@@ -79,6 +80,7 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
 </div>
 <header class="hero">
   <h1>NUESTRO <span class="flower-mark">✿</span> JARDÍN</h1>
+  <p class="subtitle">Una colección de las flores que hemos conseguido reunir</p>
 </header>
 <main class="shell">
   <section class="intro" aria-label="Información de la colección">
