@@ -18,20 +18,14 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
 button{font:inherit}
 .grain{position:fixed;inset:0;pointer-events:none;opacity:.12;z-index:5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
 .shell{width:min(1080px,calc(100% - 48px));margin:auto}
-.topline{display:flex;justify-content:space-between;align-items:center;padding:25px 0 18px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
 .topline span:last-child{color:var(--gold)}
 .hero{position:relative;text-align:center;padding:83px 20px 55px;overflow:hidden}
 .hero:before,.hero:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(116,133,104,.16);border-radius:50%;top:48px;pointer-events:none}
 .hero:before{left:-130px}.hero:after{right:-130px}
-.eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin:0 0 18px}
-h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-weight:500;margin:0;color:var(--cream)}
+h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-weight:500;font-style:italic;margin:0;color:var(--cream)}
 .flower-mark{color:var(--gold);font-size:.78em;vertical-align:10%}
-.subtitle{font-size:13px;color:#c7c4b4;font-style:italic;margin:17px auto 0;max-width:470px}
-.hero-note{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:29px;color:var(--sage);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-.hero-note:before,.hero-note:after{content:"";width:34px;height:1px;background:var(--sage);opacity:.65}
-.intro{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:34px}
-.intro p{margin:0;color:var(--muted);font-size:12px}
-.count{white-space:nowrap;color:var(--gold);font-size:11px;letter-spacing:.08em}
+.intro{display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 0 24px;border-bottom:1px solid var(--line);margin-bottom:34px;text-align:center}
+.count{white-space:nowrap;color:var(--gold);font-size:15px;letter-spacing:.08em}
 .garden{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;align-items:start}
 .specimen{grid-column:span 4;position:relative;min-height:290px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(41,59,48,.86),rgba(29,44,35,.72));border-radius:3px;padding:15px 16px 17px;text-align:left;color:inherit;cursor:pointer;overflow:hidden;transition:transform .35s,border-color .35s,background .35s;animation:appear .7s both}
 .specimen:nth-child(3n+1){grid-column:span 5}.specimen:nth-child(3n+2){grid-column:span 3;margin-top:42px}.specimen:nth-child(3n){grid-column:span 4;margin-top:15px}
@@ -51,6 +45,9 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
 .loading,.error,.empty{grid-column:1/-1;text-align:center;padding:55px 20px;color:var(--muted);font-size:13px}
 .error{color:#e1b9a9}
 .footer{text-align:center;padding:85px 20px 55px;color:var(--gold)}
+.back-btn{display:inline-block;margin-top:22px;padding:10px 22px;border:1px solid var(--sage);border-radius:999px;color:var(--cream);background:transparent;text-decoration:none;font:inherit;font-size:13px;transition:background .2s,border-color .2s}
+.back-btn:hover{background:var(--green);border-color:var(--gold)}
+.back-btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .footer-ornament{font-size:25px;opacity:.8}
 .footer p{font-size:13px;font-style:italic;margin:10px 0 0}
 .footer small{display:block;color:var(--sage);font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-top:22px}
@@ -66,7 +63,7 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
 .dialog-alt{text-align:center;color:var(--gold);font-style:italic;font-size:12px;margin:5px 0 23px}
 .meaning-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0 0 8px}
 .meaning{font-size:13px;color:#e1dfd2;margin:0 0 22px}
-.dialog-meta{display:flex;justify-content:space-between;gap:15px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:10px}
+.dialog-meta{display:flex;justify-content:center;gap:15px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:10px;text-align:center}
 .dialog-meta strong{display:block;color:var(--gold);font-weight:400;margin-top:3px}
 @keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -79,17 +76,12 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
 <body>
 <div class="grain" aria-hidden="true"></div>
 <div class="shell">
-  <div class="topline"><span>Un pequeño archivo de recuerdos</span><span>Desde septiembre · 2026</span></div>
 </div>
 <header class="hero">
-  <p class="eyebrow">Herbario de dos</p>
   <h1>NUESTRO <span class="flower-mark">✿</span> JARDÍN</h1>
-  <p class="subtitle">Una colección de las flores que hemos conseguido reunir.</p>
-  <div class="hero-note">Cada flor guarda una historia</div>
 </header>
 <main class="shell">
   <section class="intro" aria-label="Información de la colección">
-    <p>Flores recogidas, fechas que permanecen y pequeños significados.</p>
     <span class="count" id="count">Cargando colección…</span>
   </section>
   <section class="garden" id="garden" aria-live="polite">
@@ -99,7 +91,7 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
 <footer class="footer">
   <div class="footer-ornament" aria-hidden="true">✿</div>
   <p>Y que nunca dejemos de reunir flores...</p>
-  <small>Con cariño, para seguir creciendo juntos</small>
+  <a class="back-btn" href="https://blancamia.wordpress.com">← Volver</a>
 </footer>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
   <article class="dialog">
@@ -112,7 +104,6 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
     <p class="meaning" id="modalMeaning"></p>
     <div class="dialog-meta">
       <span>Primera vez<strong id="modalDate"></strong></span>
-      <span>En nuestro jardín<strong id="modalSpecimen"></strong></span>
     </div>
   </article>
 </div>
@@ -175,7 +166,6 @@ h1{font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:.045em;font-wei
     document.getElementById("modalAlt").textContent = flower.alternative_name || "";
     document.getElementById("modalMeaning").textContent = flower.meaning || "Un significado que iremos descubriendo.";
     document.getElementById("modalDate").textContent = formatDate(flower.first_date);
-    document.getElementById("modalSpecimen").textContent = String(index + 1).padStart(2,"0");
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
     closeButton.focus();
